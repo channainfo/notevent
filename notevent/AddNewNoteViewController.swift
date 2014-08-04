@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddNewNoteViewControllerDelegate {
-    func noteSaveDidTabbed(#addNewController: AddNewNoteViewController, #noteObj: Note)
+    func noteSaveDidTabbed(controller addNewController: AddNewNoteViewController, noteObj: Note)
 }
 
 class AddNewNoteViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIAlertViewDelegate {
@@ -34,7 +34,7 @@ class AddNewNoteViewController: UIViewController, UITextFieldDelegate, UIImagePi
         }
         else {
             if self.delegate {
-                self.delegate!.noteSaveDidTabbed(addNewController: self, noteObj: self.toData())
+                self.delegate!.noteSaveDidTabbed(controller: self, noteObj: self.toData())
             }
         }
     }

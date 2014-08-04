@@ -14,6 +14,8 @@
 		18B5FA71198947D0005AB602 /* EventsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5FA70198947D0005AB602 /* EventsCollection.swift */; };
 		18B5FA7919894C8D005AB602 /* DetailNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5FA7819894C8D005AB602 /* DetailNoteViewController.swift */; };
 		18F9F871198FD4B0003CCA3A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9F870198FD4B0003CCA3A /* Note.swift */; };
+		18F9F873198FDE9E003CCA3A /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9F872198FDE9E003CCA3A /* NoteTableViewCell.swift */; };
+		18F9F875198FDEF7003CCA3A /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9F874198FDEF7003CCA3A /* Notes.swift */; };
 		18FD54211987AFB700E76229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD54201987AFB700E76229 /* AppDelegate.swift */; };
 		18FD54231987AFB700E76229 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD54221987AFB700E76229 /* NotesViewController.swift */; };
 		18FD54281987AFB700E76229 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18FD54271987AFB700E76229 /* Images.xcassets */; };
@@ -38,6 +40,8 @@
 		18B5FA70198947D0005AB602 /* EventsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollection.swift; sourceTree = "<group>"; };
 		18B5FA7819894C8D005AB602 /* DetailNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNoteViewController.swift; sourceTree = "<group>"; };
 		18F9F870198FD4B0003CCA3A /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		18F9F872198FDE9E003CCA3A /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		18F9F874198FDEF7003CCA3A /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		18FD541B1987AFB700E76229 /* notevent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notevent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FD541F1987AFB700E76229 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18FD54201987AFB700E76229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 				18B5FA6E198946CA005AB602 /* Event.swift */,
 				18B5FA70198947D0005AB602 /* EventsCollection.swift */,
 				18F9F870198FD4B0003CCA3A /* Note.swift */,
+				18F9F874198FDEF7003CCA3A /* Notes.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 				18B5FA6C19894697005AB602 /* AddNewNoteViewController.swift */,
 				18FD54221987AFB700E76229 /* NotesViewController.swift */,
 				18B5FA7819894C8D005AB602 /* DetailNoteViewController.swift */,
+				18F9F872198FDE9E003CCA3A /* NoteTableViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -243,10 +249,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18FD54231987AFB700E76229 /* NotesViewController.swift in Sources */,
+				18F9F875198FDEF7003CCA3A /* Notes.swift in Sources */,
 				18A8C08C1988BB81000DD3F3 /* MediaViewController.swift in Sources */,
 				18B5FA71198947D0005AB602 /* EventsCollection.swift in Sources */,
 				18F9F871198FD4B0003CCA3A /* Note.swift in Sources */,
 				18B5FA6D19894697005AB602 /* AddNewNoteViewController.swift in Sources */,
+				18F9F873198FDE9E003CCA3A /* NoteTableViewCell.swift in Sources */,
 				18FD54211987AFB700E76229 /* AppDelegate.swift in Sources */,
 				18B5FA7919894C8D005AB602 /* DetailNoteViewController.swift in Sources */,
 				18B5FA6F198946CA005AB602 /* Event.swift in Sources */,

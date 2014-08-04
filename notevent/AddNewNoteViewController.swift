@@ -8,17 +8,42 @@
 
 import UIKit
 
-class AddNewNoteViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate {
+protocol AddNewNoteViewControllerDelegate {
+    func noteSaveDidTabbed(#addNewController: AddNewNoteViewController, #noteObj: Note)
+}
 
-    @IBOutlet  var titleTextField: UITextField
-    @IBOutlet  var descriptionTextField: UITextField
-    @IBOutlet  var tagsTextField: UITextField
+class AddNewNoteViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIAlertViewDelegate {
+
+    @IBOutlet  var titleTextField: UITextField!
+    @IBOutlet  var descriptionTextField: UITextField!
+    @IBOutlet  var tagsTextField: UITextField!
     
-    @IBOutlet  var image: UIImageView
-    @IBOutlet  var imagePlaceHolder: UIImageView
+    @IBOutlet  var image: UIImageView!
+    @IBOutlet  var imagePlaceHolder: UIImageView!
+    
+    var delegate: AddNewNoteViewControllerDelegate?
+    
     
     @IBAction func noteSaveTabbed(sender: AnyObject) {
+        println("dd")
         
+        if self.titleTextField.text.isEmpty {
+           println("eee")
+           var alert: UIAlertView = UIAlertView(title: "Invalid input", message: "Fields are all required", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        else {
+            if self.delegate {
+                self.delegate!.noteSaveDidTabbed(addNewController: self, noteObj: self.toData())
+            }
+        }
+    }
+    
+    func toData() -> Note {
+        var note: Note = Note()
+        note.title = self.titleTextField.text
+        note.description = self.descriptionTextField.text
+        return note
     }
     
     @IBAction func cancelAddNewNoteTabbed(sender: AnyObject) {
@@ -27,6 +52,17 @@ class AddNewNoteViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     func navigateToNotesViewController(){
         self.navigationController.presentingViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func stringForNow() -> String {
+        var dateString = ""
+        var now: NSDate = NSDate()
+        
+        var format: NSDateFormatter = NSDateFormatter()
+        format.dateFormat = "yyyy-mm-dd HH:MM:SS"
+        dateString = format.stringFromDate(now)
+        return dateString
+        
     }
 
     
@@ -44,6 +80,12 @@ class AddNewNoteViewController: UIViewController, UITextFieldDelegate, UIImagePi
         self.image.image = imageFromPicker
         self.imagePlaceHolder.hidden = true
         self.navigationController.presentingViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //TextField
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
     
     //UIActionSheet

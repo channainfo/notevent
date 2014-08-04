@@ -8,16 +8,31 @@
 
 import UIKit
 
-class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddNewNoteViewControllerDelegate  {
     
-    @IBOutlet var notesTable: UITableView
+    @IBOutlet var notesTable: UITableView!
+    
+    var test = ""
     
     @IBAction func addNoteTabbed(sender: AnyObject) {
-        
         var vc: AddNewNoteViewController = self.storyboard.instantiateViewControllerWithIdentifier("add_new_note") as AddNewNoteViewController
+        vc.delegate = self
         var nav: UINavigationController = UINavigationController(rootViewController: vc)
-        self.navigationController.presentViewController(nav, animated: true, completion: nil)
+        self.presentViewController(nav, animated: true, completion: nil)
         
+    }
+    
+    func noteSaveDidTabbed(#addNewController: AddNewNoteViewController, #noteObj: Note) {
+        let note: Note = addNewController.toData()
+        println(note.title)
+        println(note.description)
+        addNewController.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        println("Test me: ")
+        println(test)
     }
     
     override func viewDidLoad() {
